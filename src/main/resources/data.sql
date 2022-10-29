@@ -1,0 +1,2 @@
+insert into driverapp.;
+insert INTO driverapp.advice (advice_text) values ('Włączając się do ruchu np. wyjeżdżając np. z posesji, parkingu i skręcając w prawo, poza upewnieniem się, że z lewej nie nadjeżdża samochód, powinniśmy także zerknąć w przeciwną stronę, czyli w opisywanym przypadku prawo: Czy nikt w tym momencie nie wykonuje manewru wyprzedzania i nie jedzie naszym pasem ruchu. Niby oczywista sprawa, jednak nie wszyscy o tym pamiętają, zderzenie czołowe mogące wyniknąć z braku zachowania tej zasady może mieć bardzo przykre skutki');

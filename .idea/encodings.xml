@@ -3,5 +3,20 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-admin.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-edit-category.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-edit-image.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-edit-image1.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-edit-institution.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-add-edit-user.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-home.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-admins.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-advices.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-categories.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-donations.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-images.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin-list-users.jsp" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jspf/admin-footer.jspf" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jspf/admin-header.jspf" charset="windows-1250" />
   </component>
 </project>
