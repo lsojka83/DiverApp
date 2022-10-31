@@ -103,7 +103,7 @@
                                     <c:forEach var = "var" items="${envs}">
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">${var.key} - ${var.value}</div>
                                     </c:forEach>
-                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Zmienne systemowe serwera</div>
+                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Właściwości serwera</div>
                                     <c:forEach var = "var" items="${sysProperties}">
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">${var.key} - ${var.value}</div>
                                     </c:forEach>

@@ -3,6 +3,7 @@ package pl.coderslab.advice;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +14,9 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "name")
+    @NotBlank
     private String name;
     @Column(name = "createdOn")
     private LocalDateTime createdOn;

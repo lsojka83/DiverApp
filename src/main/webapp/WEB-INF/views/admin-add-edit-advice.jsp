@@ -10,15 +10,15 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD fundacji</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD porad</h1>
 
     </div>
 
-    <form:form action="/admin/editinstitution" method="post" modelAttribute="institution">
+    <form:form action="/admin/addeditadvice" method="post" modelAttribute="advice">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Dodaj fundacje</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Dodaj poradê</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -32,10 +32,39 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Opis</td>
+                            <td>Treœæ</td>
                             <td>
-                                <form:input path="description" type="text" name="description" placeholder="Opis"  />
-                                <form:errors path="description"/>
+                                <form:textarea path="adviceText" type="text" name="adviceText" placeholder="Treœæ" rows="5" cols="20"/>
+                                <form:errors path="adviceText"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kategoria</td>
+                            <td>
+                                <form:select path="category" items="${categories}" itemLabel="name" itemValue="id"/>
+                                <form:errors path="category"/>
+                            </td>
+                        </tr>
+                        <tr>
+                         <td>Obrazek</td>
+                            <td>
+                                <form:select path="image" items="${images}" itemLabel="name" itemValue="id"/>
+                                <form:errors path="image"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Film</td>
+                            <td>
+                                <form:select path="movie" items="${movies}" itemLabel="name" itemValue="id"/>
+                                <form:errors path="movie"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Pytania</td>
+                            <td>
+                                <form:select path="quizQuestions" items="${quizQuestions}" itemLabel="questionText" itemValue="id" multiple="true"/>
+                                <form:errors path="quizQuestions"/>
                             </td>
                         </tr>
                         </tbody>

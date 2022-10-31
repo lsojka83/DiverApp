@@ -8,9 +8,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD Porad</h1>
-        <a href="/admin/addeditadvice" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i>Dodaj porade</a>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Odpowiedzi</h1>
+        <a href="/admin/addeditquizanswer" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i>Dodaj odpowiedz</a>
     </div>
 
     <div class="card shadow mb-4">
@@ -24,32 +24,28 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nazwa</th>
                         <th>Treść</th>
                         <th>Kategoria</th>
-                        <th>Obrazek</th>
-                        <th>Film</th>
-                        <th>Pytania</th>
-                        <th>Rating</th>
+                        <th>Obraz</th>
+                        <th>Kategoria</th>
                         <th>Data utworzenia</th>
                         <th>Data modyfikacji</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="advice" items="${advices}">
+                    <c:forEach var="quizAnswer" items="${quizAnswers}">
                         <tr role="row" class="odd">
-                            <td class="sorting_1">${advice.id}</td>
-                            <td>${advice.name}</td>
-                            <td>${advice.adviceText}</td>
-                            <td>${advice.category}</td>
-                            <td>${advice.image}</td>
-                            <td>${advice.movie}</td>
-                            <td>${advice.quizQuestions}</td>
-                            <td>${advice.createdOn}</td>
-                            <td>${advice.lastModifiedOn}</td>
+                            <td class="sorting_1">${quizAnswer.id}</td>
+                            <td>${quizAnswer.answerText}</td>
+                            <td>${quizAnswer.category.name}</td>
                             <td>
-                                <a href="/admin/addeditadvice?id=${advice.id}">Edytuj</a>
-                                <a href="/admin/deleteadvice?id=${advice.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
+                            <img src="/images/${quizAnswer.image.link}.jpg" width="100" height="80" alt=${image.name}>
+                            ${quizAnswer.image.name}</td>
+                            <td>${quizAnswer.createdOn}</td>
+                            <td>${quizAnswer.lastModifiedOn}</td>
+                            <td>
+                                <a href="/admin/addeditquizanswer?id=${quizAnswer.id}">Edytuj</a>
+                                <a href="/admin/deletequizanswer?id=${quizAnswer.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
                             </td>
                         </tr>
                     </c:forEach>

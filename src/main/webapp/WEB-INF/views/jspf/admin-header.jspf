@@ -69,10 +69,14 @@
                     <span>Kategorie</span></a>
         </li>
 
-
+        <li class="nav-item active">
+                    <a class="nav-link" href="/admin/quizquestions">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Pytanie quizowe</span></a>
+        </li>
 
         <li class="nav-item active">
-                    <a class="nav-link" href="/admin/answers">
+                    <a class="nav-link" href="/admin/quizanswers">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Odpowiedzi</span></a>
         </li>

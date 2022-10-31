@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import pl.coderslab.model.FileOps;
 
 @SpringBootApplication
 @ServletComponentScan
@@ -21,5 +22,12 @@ public class ScrumLabApplication {
 //        multipartResolver.setMaxUploadSize(20000000);
 //        return multipartResolver;
 //    }
+
+    @Bean(name = "fileOps")
+    public FileOps fileOps()
+    {
+        FileOps fileOps = new FileOps();
+        return fileOps;
+    }
 
 }

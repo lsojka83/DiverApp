@@ -3,6 +3,7 @@ package pl.coderslab.advice;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity(name = "image")
@@ -12,8 +13,11 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
     @Column(name = "name")
     private String name;
+
     @Column(name = "link")
     private String link;
     @Column(name = "createdOn")

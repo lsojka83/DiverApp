@@ -16,6 +16,13 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Lista</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Folder zapisu plików: ${imagesFolder}</h6>
+            <br>
+            <!--  ${pageContext.request.contextPath} -->
+           ${pageContext.request.requestURL}
+            <!-- !!! ${request.param} -->
+            <br>
+           !!! ${url}
         </div>
         <div class="card-body">
             <div class="table-responsive-lg">
@@ -26,6 +33,9 @@
                         <th>Id</th>
                         <th>Nazwa</th>
                         <th>Link</th>
+                        <th>Podgląd</th>
+                        <th>Data utworzenia</th>
+                        <th>Data modyfikacji</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,13 +45,14 @@
                             <td>${image.name}</td>
                             <td>${image.link}</td>
                              <td>
-                             <img src=${image.link} width="100" height="80" alt=${image.name}>
-                             <img src="https://google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" width="100" height="80" alt=${image.name}>
-
+                             <a href="${url}/${image.link}.jpg">
+                             <img src="/images/${image.link}.jpg" width="100" height="80" alt=${image.name}>
                              </td>
+                            <td>${image.createdOn}</td>
+                            <td>${image.lastModifiedOn}</td>
                             <td>
-                                <a href="/admin/editimage?id=${category.id}">Edytuj</a>
-                                <a href="/admin/deleteimage?id=${category.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
+                                <a href="/admin/editimage?id=${image.id}">Edytuj</a>
+                                <a href="/admin/deleteimage?id=${image.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
                             </td>
                         </tr>
                     </c:forEach>

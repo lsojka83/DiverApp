@@ -17,20 +17,28 @@ public class Advice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "adviceText", columnDefinition="text")
+    //    @Column(name = "adviceText", columnDefinition="text")
+    @Column(name = "name", length = 200)
+    @NotBlank
+    private String name;
+
     @Column(name = "adviceText", length = 3000)
     @NotBlank
     private String adviceText;
-    @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Image image;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     @NotNull
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "image_id")
+    private Image image;
+
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
+
     @Column(name = "quizQuestions")
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "advice_quiz_questions")

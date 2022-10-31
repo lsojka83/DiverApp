@@ -25,6 +25,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Nazwa</th>
+                        <th>Data utworzenia</th>
+                        <th>Data modyfikacji</th>
                         <th>Akcje</th>
                     </tr>
                     </thead>
@@ -33,6 +35,8 @@
                         <tr role="row" class="odd">
                             <td class="sorting_1">${category.id}</td>
                             <td>${category.name}</td>
+                            <td>${category.createdOn}</td>
+                            <td>${category.lastModifiedOn}</td>
                             <td>
                                 <a href="/admin/editcategory?id=${category.id}">Edytuj</a>
                                 <a href="/admin/deletecategory?id=${category.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
