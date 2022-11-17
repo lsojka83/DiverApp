@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import pl.coderslab.service.SpringDataUserDetailsService;
 
 @Configuration
@@ -23,13 +25,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http
+//                .csrf()
+//                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+//        return http.build();
+//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-//                .antMatchers("/admin").authenticated()
-                .antMatchers("/admin").permitAll();
+                .antMatchers("/","/addadvicerating/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/admin/**").authenticated()
+                .and().formLogin();
+//                .antMatchers("/admin").permitAll()
 
         http.csrf().disable();
     }

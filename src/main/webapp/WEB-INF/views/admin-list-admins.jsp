@@ -8,8 +8,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Admin CRUD</h1>
-        <a href="/admin/addadmin" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <h1 class="h3 mb-0 text-gray-800">CRUD Administratorów</h1>
+        <a href="/admin/addeditadmin" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i>Dodaj admina</a>
     </div>
 
@@ -25,22 +25,29 @@
                     <tr>
                         <th>Id</th>
                         <th>Email</th>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
+                        <th>Nazwa</th>
+                        <th>Role</th>
+                        <th>Aktywny</th>
                         <th>Akcje</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="admin" items="${admins}">
+                    <c:forEach var="user" items="${users}">
                         <tr role="row" class="odd">
-                            <td class="sorting_1">${admin.id}</td>
-                            <td>${admin.email}</td>
-                            <td>${admin.firstName}</td>
-                            <td>${admin.lastName}</td>
+                            <td class="sorting_1">${user.id}</td>
+                            <td>${user.email}</td>
+                            <td>${user.username}</td>
                             <td>
-                                <a href="/admin/edituser?id=${admin.id}&group=admins">Edytuj</a>
-                                <c:if test="${admin.id != currentAdminId}">
-                                <a href="/admin/deleteuser?id=${admin.id}&group=admins" onclick="return confirm('Czy skasować?')">Skasuj</a>
+                            <c:forEach var="role" items="${user.roles}">
+                            ${role.name}
+                            </c:forEach>
+                            </td>
+                            <td>${user.enabled}</td>
+
+                            <td>
+                                <a href="/admin/addeditadmin?id=${user.id}">Edytuj</a>
+                                <c:if test="${user.id != currentUserId}">
+                                <a href="/admin/deleteadmin?id=${user.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
                                 </c:if>
                             </td>
                         </tr>

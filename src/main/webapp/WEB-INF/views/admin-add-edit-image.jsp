@@ -11,46 +11,23 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD obrazów</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Obrazów</h1>
     </div>
 
-    <form name="fileUpload" method="POST" action="/admin/addimage" enctype="multipart/form-data">
+    <form:form name="fileUpload" method="POST" action="/admin/addeditimage" modelAttribute="image" enctype="multipart/form-data">
+
+     <form:input path="name" type="text"/>
+     <label for="name">Nazwa obrazu</label>
+     <form:errors path="name"/>
+      <br>
     <label>Wybierz plik:</label> <br>
     <input type="file" name="multipartFile" class="btn btn-warning"/>
      <br>
-     <%--
-     <input type="file" accept="image/*" id="file-input" />
-     <script>
-       const fileInput = document.getElementById('file-input');
 
-       fileInput.addEventListener('change', (e) =>
-         doSomethingWithFiles(e.target.files),
-       );
-     </script>
-     <div id="target">You can drag an image file here</div>
-     <script>
-       const target = document.getElementById('target');
+    <form:hidden path="id"/>
+    <form:hidden path="link"/>
+    <form:hidden path="createdOn"/>
 
-       target.addEventListener('drop', (e) => {
-         e.stopPropagation();
-         e.preventDefault();
-
-         doSomethingWithFiles(e.dataTransfer.files);
-       });
-
-       target.addEventListener('dragover', (e) => {
-         e.stopPropagation();
-         e.preventDefault();
-
-         e.dataTransfer.dropEffect = 'copy';
-       });
-     </script>
---%>
-
-
-     <br>
-    <input type="text" name="name" id="name" value="">
-    <label for="name">Nazwa</label>
     <p></p>
 
                 <button class="btn btn-success" type="submit" name="confirm"
@@ -58,8 +35,10 @@
                 <button class="btn btn-danger" type="submit" name="confirm"
                 value="no" formnovalidate>Zrezygnuj</button>
 
-     <%-- <input type="submit" name="submit" value="Wyœlij" class="btn btn-success"/>--%>
-    </form>
+    </form:form>
+
+
+
 
 </div>
 <!-- /.container-fluid -->

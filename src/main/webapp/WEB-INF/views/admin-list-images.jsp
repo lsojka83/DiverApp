@@ -9,7 +9,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">CRUD Obrazów</h1>
-        <a href="/admin/addimage" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="/admin/addeditimage" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i>Dodaj obraz</a>
     </div>
 
@@ -45,13 +45,24 @@
                             <td>${image.name}</td>
                             <td>${image.link}</td>
                              <td>
-                             <a href="${url}/${image.link}.jpg">
+                              <c:if test="${not empty image.link}">
+
+                               <a href="${url}/${image.link}.jpg">
+
+<%--
+                               <a href="${url}${image.link}">
+--%>
                              <img src="/images/${image.link}.jpg" width="100" height="80" alt=${image.name}>
+<%--
+                             <img src="/image?uuid=${image.link}" width="100" height="80" alt=${image.name}>
+--%>
+                              </c:if>
+
                              </td>
                             <td>${image.createdOn}</td>
                             <td>${image.lastModifiedOn}</td>
                             <td>
-                                <a href="/admin/editimage?id=${image.id}">Edytuj</a>
+                                <a href="/admin/addeditimage?id=${image.id}">Edytuj</a>
                                 <a href="/admin/deleteimage?id=${image.id}" onclick="return confirm('Czy skasować?')">Skasuj</a>
                             </td>
                         </tr>

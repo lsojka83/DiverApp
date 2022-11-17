@@ -57,6 +57,7 @@
         </div>
 
         <form:hidden path="id"/>
+        <form:hidden path="createdOn"/>
 
         <div class="text-center">
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="confirm"

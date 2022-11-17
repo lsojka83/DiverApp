@@ -8,7 +8,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD Pytan</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Pytań</h1>
         <a href="/admin/addeditquizquestion" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i>Dodaj pytanie</a>
     </div>
@@ -34,14 +34,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="quizQuestion" items="${quizQuestions}">
+                    <c:forEach var="quizQuestion" items="${quizquestions}">
                         <tr role="row" class="odd">
                             <td class="sorting_1">${quizQuestion.id}</td>
                             <td>${quizQuestion.questionText}</td>
-                            <td>${quizQuestion.category}</td>
-                            <td>${quizQuestion.correctAnswer.text}</td>
-                            <td>${quizQuestion.firstIncorrectAnswer.text}</td>
-                            <td>${quizQuestion.secondIncorrectAnswer.text}</td>
+                            <td>${quizQuestion.category.name}</td>
+                            <td>${quizQuestion.correctAnswer.answerText}</td>
+                            <td>${quizQuestion.firstIncorrectAnswer.answerText}</td>
+                            <td>${quizQuestion.secondIncorrectAnswer.answerText}</td>
                             <td>${quizQuestion.createdOn}</td>
                             <td>${quizQuestion.lastModifiedOn}</td>
                             <td>

@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity(name = "movie")
 @Table(name = "movie")
@@ -27,11 +28,11 @@ public class Movie {
 
     @PrePersist
     public void prePersist() {
-        createdOn = LocalDateTime.now();
+        createdOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     }
 
     @PreUpdate
     public void preUpdate() {
-        lastModifiedOn = LocalDateTime.now();
+        lastModifiedOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     }
 }

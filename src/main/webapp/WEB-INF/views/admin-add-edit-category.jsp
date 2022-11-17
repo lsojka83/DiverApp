@@ -10,7 +10,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD kategorii</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Kategorii</h1>
 
     </div>
 
@@ -41,7 +41,7 @@
         </div>
 
     <form:hidden path="id"/>
-
+    <form:hidden path="createdOn"/>
 
         <div class="text-center">
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="confirm"

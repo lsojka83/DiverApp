@@ -17,6 +17,11 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Lista</h6>
         </div>
+       <c:if test="${answerUsed=='yes'}">
+             <div class="card-header py-3">
+                    <h2 class="m-0 font-weight-bold text-primary">Odpowiedz używana, nie można skasować</h2>
+                </div>
+          </c:if>
         <div class="card-body">
             <div class="table-responsive-lg">
 

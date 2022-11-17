@@ -10,7 +10,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD pytań</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Pytań</h1>
 
     </div>
 
@@ -43,21 +43,21 @@
                         <tr>
                             <td>Poprawna odpowiedz</td>
                             <td>
-                                <form:select path="correctAnswer" items="${quizAnswers}" itemLabel="text" itemValue="id"/>
+                                <form:select path="correctAnswer" items="${quizAnswers}" itemLabel="answerText" itemValue="id"/>
                                 <form:errors path="correctAnswer"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Niepoprawna odpowiedz 1</td>
                             <td>
-                                <form:select path="firstIncorrectAnswer" items="${quizAnswers}" itemLabel="text" itemValue="id"/>
+                                <form:select path="firstIncorrectAnswer" items="${quizAnswers}" itemLabel="answerText" itemValue="id"/>
                                 <form:errors path="firstIncorrectAnswer"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Niepoprawna odpowiedz 2</td>
                             <td>
-                                <form:select path="secondIncorrectAnswer" items="${quizAnswers}" itemLabel="text" itemValue="id"/>
+                                <form:select path="secondIncorrectAnswer" items="${quizAnswers}" itemLabel="answerText" itemValue="id"/>
                                 <form:errors path="secondIncorrectAnswer"/>
                             </td>
                         </tr>
@@ -71,6 +71,7 @@
         </div>
 
         <form:hidden path="id"/>
+        <form:hidden path="createdOn"/>
 
         <div class="text-center">
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="confirm"

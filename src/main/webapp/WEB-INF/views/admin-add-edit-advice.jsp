@@ -41,21 +41,27 @@
                         <tr>
                             <td>Kategoria</td>
                             <td>
-                                <form:select path="category" items="${categories}" itemLabel="name" itemValue="id"/>
+                                <form:select path="category">
+                                <form:option value='1' label="-Wybierz kategorie-"/>
+                                <form:options items="${categories}" itemLabel="name" itemValue="id"/>
+                                </form:select>
                                 <form:errors path="category"/>
                             </td>
                         </tr>
                         <tr>
                          <td>Obrazek</td>
                             <td>
-                                <form:select path="image" items="${images}" itemLabel="name" itemValue="id"/>
+                                <form:select path="image">
+                                 <form:option value='0' label="-Wybierz obraz-"/>
+                                 <form:options items="${images}" itemLabel="name" itemValue="id"/>
+                                  </form:select>
                                 <form:errors path="image"/>
                             </td>
                         </tr>
                         <tr>
                             <td>Film</td>
                             <td>
-                                <form:select path="movie" items="${movies}" itemLabel="name" itemValue="id"/>
+                                <form:select path="movie" items="${movies}" itemLabel="name" itemValue="id" label="Wybierz film"/>
                                 <form:errors path="movie"/>
                             </td>
                         </tr>
@@ -65,6 +71,20 @@
                             <td>
                                 <form:select path="quizQuestions" items="${quizQuestions}" itemLabel="questionText" itemValue="id" multiple="true"/>
                                 <form:errors path="quizQuestions"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ocena</td>
+                            <td>
+                                <form:input path="rating"  name="rating" placeholder="Ocena"  />
+                                <form:errors path="rating"/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <td>Liczba ocen</td>
+                            <td>
+                                <form:input path="ratingsCount" name="ratingsCount" placeholder="Liczba ocen"  />
+                                <form:errors path="ratingsCount"/>
                             </td>
                         </tr>
                         </tbody>
@@ -77,6 +97,7 @@
 
 
         <form:hidden path="id"/>
+        <form:hidden path="createdOn"/>
 
         <div class="text-center">
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="confirm"

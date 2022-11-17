@@ -10,25 +10,15 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">CRUD obrazów</h1>
+        <h1 class="h3 mb-0 text-gray-800">CRUD Roli</h1>
+
     </div>
 
-    <form name="fileUpload" method="POST" action="/admin/addimage" enctype="multipart/form-data">
-    <label>Wybierz plik:</label> <br>
-    <input type="file" name="file" class="btn btn-warning"/>
-     <br>
-    <input type="text" name="name" id="name" value="">
-    <label for="name">Nazwa</label>
-    <p></p>
-     <input type="submit" name="submit" value="Wyœlij" class="btn btn-success"/>
-    </form>
-
-
-<form:form action="/admin/addimage" method="post" modelAttribute="image">
+<form:form action="/admin/addeditrole" method="post" modelAttribute="role">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Dodaj obraz</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Dodaj rolê</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -51,7 +41,7 @@
         </div>
 
     <form:hidden path="id"/>
-
+    <form:hidden path="createdOn"/>
 
         <div class="text-center">
             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="confirm"

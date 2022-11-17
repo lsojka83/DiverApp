@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity(name = "quizanswer")
 @Table(name = "quizanswer")
@@ -22,7 +23,7 @@ public class QuizAnswer {
     @NotBlank
     private String answerText;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id")
     private Image image;
 
@@ -37,11 +38,12 @@ public class QuizAnswer {
 
     @PrePersist
     public void prePersist() {
-        createdOn = LocalDateTime.now();
+        createdOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     }
+
     @PreUpdate
     public void preUpdate() {
-        lastModifiedOn = LocalDateTime.now();
+        lastModifiedOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     }
 
 

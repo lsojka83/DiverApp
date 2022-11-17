@@ -14,7 +14,7 @@
 
     </div>
 
-<form:form action="/admin/addadmin" method="post" modelAttribute="user">
+<form:form action="/admin/addeditadmin" method="post" modelAttribute="user">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -33,19 +33,34 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Hasło</td>
+                            <td>Nazwa</td>
                             <td>
-                                <form:input path="password" type="password" name="password" placeholder="Hasło"  />
-                                <form:errors path="password"/>
-                                <c:if test="${not empty invalidPassword}">
-                                    ${invalidPassword}
-                                </c:if>
+                                <form:input path="username" type="text" name="username" placeholder="Nazwa"  />
+                                <form:errors path="username"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>Powtórz hasło</td>
+                            <td>Role</td>
                             <td>
-                                <input type="password" name="password2" placeholder="Powtórz hasło" />
+                                <form:select path="roles">
+                                <form:option value="0" label="-Wybierz role-"/>
+                                <form:options items="${roles}" itemLabel="name" itemValue="id"/>
+                                </form:select>
+                                <form:errors path="roles"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hasło</td>
+                            <td>
+                                    <div class="form-group">
+                                    <input type="password" name="password" placeholder="Podaj nowe hasło" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" name="password2" placeholder="Powtórz nowe hasło" />
+                                </div>
+                                <form:errors path="password"/>
+
                                 <c:if test="${not empty invalidPassword}">
                                     ${invalidPassword}
                                 </c:if>
@@ -58,9 +73,16 @@
                 </div>
             </div>
         </div>
+    <form:hidden path="id"/>
 
+<%--
     <form:hidden path="roles"/>
+--%>
     <form:hidden path="enabled"/>
+    <form:hidden path="createdOn"/>
+
+    <input type="text" name="newAdmin" value="${newAdmin}" hidden="true"/>
+
 
 
         <div class="text-center">

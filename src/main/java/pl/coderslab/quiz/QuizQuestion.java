@@ -1,12 +1,15 @@
 package pl.coderslab.quiz;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.advice.Category;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 @Entity(name = "quizquestion")
 @Data
@@ -22,7 +25,6 @@ public class QuizQuestion {
     private String questionText;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
     @NotNull
     private Category category;
 
@@ -37,6 +39,8 @@ public class QuizQuestion {
     @OneToOne
     @NotNull
     private QuizAnswer secondIncorrectAnswer;
+
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "createdOn")
     private LocalDateTime createdOn;
     @Column(name = "lastModifiedOn")
@@ -44,12 +48,13 @@ public class QuizQuestion {
 
     @PrePersist
     public void prePersist() {
-        createdOn = LocalDateTime.now();
+        createdOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+//        createdOn = LocalDateTime.now();
     }
 
     @PreUpdate
     public void preUpdate() {
-        lastModifiedOn = LocalDateTime.now();
+        lastModifiedOn = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     }
 
 }

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> <%-- imports function tags from JSTL, prefix "fn"--%>
 
 <%@ include file="/WEB-INF/views/jspf/admin-header.jspf" %>
 
@@ -30,7 +31,7 @@
                         <th>Obrazek</th>
                         <th>Film</th>
                         <th>Pytania</th>
-                        <th>Rating</th>
+                        <th>Ocena całkowita</th>
                         <th>Data utworzenia</th>
                         <th>Data modyfikacji</th>
                         </tr>
@@ -40,11 +41,18 @@
                         <tr role="row" class="odd">
                             <td class="sorting_1">${advice.id}</td>
                             <td>${advice.name}</td>
-                            <td>${advice.adviceText}</td>
-                            <td>${advice.category}</td>
-                            <td>${advice.image}</td>
-                            <td>${advice.movie}</td>
-                            <td>${advice.quizQuestions}</td>
+                            <td>
+                            ${fn:substring(advice.adviceText, 0, 40)}...
+                            </td>
+                            <td>${advice.category.name}</td>
+                            <td>${advice.image.name}</td>
+                            <td>${advice.movie.name}</td>
+                            <td>
+                            <c:forEach var="question" items="${advice.quizQuestions}">
+                            ${question.questionText}
+                            </c:forEach>
+                            </td>
+                            <td>${advice.rating}</td>
                             <td>${advice.createdOn}</td>
                             <td>${advice.lastModifiedOn}</td>
                             <td>
